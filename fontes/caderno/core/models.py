@@ -104,13 +104,13 @@ class AnexoAula(ModeBase):
     )
 
     EXTENSAO_CHOICES = (
-        ("P", "PDF"),
-        ("J", "JPG"),
-        ("W", "WAV")
+        ("PDF", "PDF"),
+        ("JPG", "JPG"),
+        ("WAV", "WAV")
     )
 
     nome = models.CharField(max_length=40, null=False)
-    tipo = models.CharField(max_length=20, choices=TIPO_CHOICES,blank=False, null=False)
+    tipo = models.CharField(max_length=1, choices=TIPO_CHOICES,blank=False, null=False)
     extensao = models.CharField(max_length=3, choices=EXTENSAO_CHOICES,blank=False, null=True)
     caminho_anexo = models.CharField(max_length=100, null=False)
 
@@ -136,13 +136,13 @@ class AnexoComentario(ModeBase):
     )
 
     EXTENSAO_CHOICES = (
-        ("P", "PDF"),
-        ("J", "JPG"),
-        ("W", "WAV")
+        ("PDF", "PDF"),
+        ("JPG", "JPG"),
+        ("WAV", "WAV")
     )
 
     nome = models.CharField(max_length=40, null=False)
-    tipo = models.CharField(max_length=20, choices=TIPO_CHOICES,blank=False, null=False)
+    tipo = models.CharField(max_length=1, choices=TIPO_CHOICES,blank=False, null=False)
     extensao = models.CharField(max_length=3, choices=EXTENSAO_CHOICES,blank=False, null=True)
     caminho_anexo = models.CharField(max_length=100, null=False)
 
