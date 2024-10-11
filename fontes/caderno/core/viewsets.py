@@ -10,9 +10,16 @@ class UsuarioViewset(viewsets.ModelViewSet):
     @action(detail=False, methods=['GET'])
     def obter_por_nome(self, request, *args, **kwargs):
         nome = request.query_params.get('nome')
-        self.queryset = queries.obter_usuario_por_nome(nome)
+        self.queryset = queries.obter_por_nome(nome)
         return super().list(request, *args, **kwargs)
-            
+
+    # Esse código direto da apostila também funciona
+    # @action(detail=False, methods=['GET'])
+    # def obter_por_nome(self, request, *args, **kwargs):
+    #     nome = request.query_params.get('nome')
+    #     self.queryset = models.Usuario.objects.filter(nome__icontains=nome)
+    #     return super(UsuarioViewset, self).list(request, *args, **kwargs)
+
 class AulaViewset(viewsets.ModelViewSet):
     queryset = models.Aula.objects.all()
     serializer_class = serializers.AulaModelSerializer
