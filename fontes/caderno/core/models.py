@@ -14,16 +14,20 @@ class ModeBase(models.Model):
 
 class Usuario(ModeBase):
 
-    PERFIL_CHOICES = (
-        ("I", "Instrutor"),
-        ("P", "Participante")
-    )
+    class Perfil(models.TextChoices):
+        Instrutor = 'I', 'Instrutor'
+        Participante = 'P', 'Participante'
+
+    # PERFIL_CHOICES = (
+    #     ("I", "Instrutor"),
+    #     ("P", "Participante")
+    # )
 
     email = models.CharField(max_length=40, null=False)
     nome = models.CharField(max_length=100, null=True)
     apelido = models.CharField(max_length=20, null=False)
     senha = models.CharField(max_length=20, null=False)
-    perfil = models.CharField(max_length=1, choices=PERFIL_CHOICES, blank=False,null=False)
+    perfil = models.CharField(max_length=1, choices=Perfil, blank=False,null=False)
 
     def __str__(self):
         return self.nome
@@ -67,13 +71,18 @@ class UsuarioAula(ModeBase):
 
 class Comentario(ModeBase):
 
-    TIPO_CHOICES = (
-        ("P", "Próprio"),
-        ("O", "Opinião")
-    )
+    class Tipo(models.TextChoices):
+        Propria = 'P', 'Propria'
+        Opiniao = 'O', 'Opiniao'
+
+    # TIPO_CHOICES = (
+    #     ("P", "Proprio"),
+    #     ("O", "Opinião")
+    # )
+
     data_aula = models.DateField(null=False)
     texto = models.TextField(null=False)
-    tipo = models.CharField(max_length=1, choices=TIPO_CHOICES, blank=False, null=False)
+    tipo = models.CharField(max_length=1, choices=Tipo, blank=False, null=False)
 
     aula = models.ForeignKey(
         to='Aula',
@@ -97,21 +106,31 @@ class Comentario(ModeBase):
 
 class AnexoAula(ModeBase):
 
-    TIPO_CHOICES = (
-        ("A", "arquivo"),
-        ("F", "foto"),
-        ("S", "áudio")
-    )
+    class Tipo(models.TextChoices):
+        Arquivo = 'A', 'Arquivo'
+        Foto = 'F', 'Foto'
+        Audio = 'S', 'Audio'
 
-    EXTENSAO_CHOICES = (
-        ("PDF", "PDF"),
-        ("JPG", "JPG"),
-        ("WAV", "WAV")
-    )
+    class Extensao(models.TextChoices):
+        PDF = 'PDF', 'PDF'
+        JPG = 'JPG', 'JPG'
+        WAV = 'WAV', 'WAVE'
+
+    # TIPO_CHOICES = (
+    #     ("A", "Arquivo"),
+    #     ("F", "Foto"),
+    #     ("S", "Audio")
+    # )
+
+    # EXTENSAO_CHOICES = (
+    #     ("PDF", "PDF"),
+    #     ("JPG", "JPG"),
+    #     ("WAV", "WAV")
+    # )
 
     nome = models.CharField(max_length=40, null=False)
-    tipo = models.CharField(max_length=1, choices=TIPO_CHOICES,blank=False, null=False)
-    extensao = models.CharField(max_length=3, choices=EXTENSAO_CHOICES,blank=False, null=True)
+    tipo = models.CharField(max_length=1, choices=Tipo,blank=False, null=False)
+    extensao = models.CharField(max_length=3, choices=Extensao,blank=False, null=True)
     caminho_anexo = models.CharField(max_length=100, null=False)
 
     aula = models.ForeignKey(
@@ -129,21 +148,31 @@ class AnexoAula(ModeBase):
 
 class AnexoComentario(ModeBase):
 
-    TIPO_CHOICES = (
-        ("A", "arquivo"),
-        ("F", "foto"),
-        ("S", "áudio")
-    )
+    class Tipo(models.TextChoices):
+        Arquivo = 'A', 'Arquivo'
+        Foto = 'F', 'Foto'
+        Audio = 'S', 'Audio'
 
-    EXTENSAO_CHOICES = (
-        ("PDF", "PDF"),
-        ("JPG", "JPG"),
-        ("WAV", "WAV")
-    )
+    class Extensao(models.TextChoices):
+        PDF = 'PDF', 'PDF'
+        JPG = 'JPG', 'JPG'
+        WAV = 'WAV', 'WAVE'
+
+    # TIPO_CHOICES = (
+    #     ("A", "arquivo"),
+    #     ("F", "foto"),
+    #     ("S", "áudio")
+    # )
+
+    # EXTENSAO_CHOICES = (
+    #     ("PDF", "PDF"),
+    #     ("JPG", "JPG"),
+    #     ("WAV", "WAV")
+    # )
 
     nome = models.CharField(max_length=40, null=False)
-    tipo = models.CharField(max_length=1, choices=TIPO_CHOICES,blank=False, null=False)
-    extensao = models.CharField(max_length=3, choices=EXTENSAO_CHOICES,blank=False, null=True)
+    tipo = models.CharField(max_length=1, choices=Tipo,blank=False, null=False)
+    extensao = models.CharField(max_length=3, choices=Extensao,blank=False, null=True)
     caminho_anexo = models.CharField(max_length=100, null=False)
 
     Comentario = models.ForeignKey(
