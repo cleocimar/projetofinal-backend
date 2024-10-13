@@ -1,32 +1,38 @@
+from rest_flex_fields import FlexFieldsModelSerializer
 from rest_framework import serializers
 from core import models
 
-class UsuarioModelSerializer(serializers.ModelSerializer):
+class UsuarioModelSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = models.Usuario
         fields = '__all__'
 
-class AulaModelSerializer(serializers.ModelSerializer):
+class AulaModelSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = models.Aula
         fields = '__all__'
 
-class UsuarioAulaModelSerializer(serializers.ModelSerializer):
+class UsuarioAulaModelSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = models.UsuarioAula
         fields = '__all__'
+        expandable_fields = {
+            'usuario': ('core.UsuarioModelSerializer'),
+            'aula': ('core.AulaModelSerializer'),
+        }
 
-class ComentarioModelSerializer(serializers.ModelSerializer):
+
+class ComentarioModelSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = models.Comentario
         fields = '__all__'
 
-class AnexoAulaModelSerializer(serializers.ModelSerializer):
+class AnexoAulaModelSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = models.AnexoAula
         fields = '__all__'
 
-class AnexoComentarioModelSerializer(serializers.ModelSerializer):
+class AnexoComentarioModelSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = models.AnexoComentario
         fields = '__all__'

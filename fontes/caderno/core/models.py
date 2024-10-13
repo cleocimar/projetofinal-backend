@@ -18,11 +18,6 @@ class Usuario(ModeBase):
         Instrutor = 'I', 'Instrutor'
         Participante = 'P', 'Participante'
 
-    # PERFIL_CHOICES = (
-    #     ("I", "Instrutor"),
-    #     ("P", "Participante")
-    # )
-
     email = models.CharField(max_length=40, null=False)
     nome = models.CharField(max_length=100, null=True)
     apelido = models.CharField(max_length=20, null=False)
@@ -75,11 +70,6 @@ class Comentario(ModeBase):
         Propria = 'P', 'Propria'
         Opiniao = 'O', 'Opiniao'
 
-    # TIPO_CHOICES = (
-    #     ("P", "Proprio"),
-    #     ("O", "Opinião")
-    # )
-
     data_aula = models.DateField(null=False)
     texto = models.TextField(null=False)
     tipo = models.CharField(max_length=1, choices=Tipo, blank=False, null=False)
@@ -115,18 +105,6 @@ class AnexoAula(ModeBase):
         PDF = 'PDF', 'PDF'
         JPG = 'JPG', 'JPG'
         WAV = 'WAV', 'WAVE'
-
-    # TIPO_CHOICES = (
-    #     ("A", "Arquivo"),
-    #     ("F", "Foto"),
-    #     ("S", "Audio")
-    # )
-
-    # EXTENSAO_CHOICES = (
-    #     ("PDF", "PDF"),
-    #     ("JPG", "JPG"),
-    #     ("WAV", "WAV")
-    # )
 
     nome = models.CharField(max_length=40, null=False)
     tipo = models.CharField(max_length=1, choices=Tipo,blank=False, null=False)

@@ -7,14 +7,6 @@ class UsuarioViewset(viewsets.ModelViewSet):
     serializer_class = serializers.UsuarioModelSerializer
     filterset_class = filters.UsuarioFilter
 
-    # método customizado (esse código abaixo não é necessário com filter)
-    # @action(detail=False, methods=['GET'])
-    # def obter_por_nome(self, request, *args, **kwargs):
-    #     resultado_validacao = serializers_params.UsuarioObterPorNomeSerializersParams(data=request.query_params)
-    #     resultado_validacao.is_valid(raise_exception=True)
-    #     self.queryset = queries.obter_por_nome(resultado_validacao.validated_data.get('nome'))
-    #     return super().list(request, *args, **kwargs)
-
 class AulaViewset(viewsets.ModelViewSet):
     queryset = models.Aula.objects.all()
     serializer_class = serializers.AulaModelSerializer
