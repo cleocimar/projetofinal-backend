@@ -15,6 +15,7 @@ class AulaViewset(viewsets.ModelViewSet):
 class UsuarioAulaViewset(viewsets.ModelViewSet):
     queryset = models.UsuarioAula.objects.all()
     serializer_class = serializers.UsuarioAulaModelSerializer
+    filterset_class = filters.UsuarioAulaFilter
 
 class ComentarioViewset(viewsets.ModelViewSet):
     queryset = models.Comentario.objects.all()
