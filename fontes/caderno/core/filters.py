@@ -28,6 +28,26 @@ class ComentarioFilter(filterset.FilterSet):
 
     class Meta:
         model = models.Comentario
-        fields = ('texto', )
+        fields = ('texto', 'data_comentario', )
 
+class AnexoAulaFilter(filterset.FilterSet):
+
+    nome = filterset.CharFilter(lookup_expr='icontains')
+    tipo = filterset.CharFilter(lookup_expr='icontains')
+    extensao = filterset.CharFilter(lookup_expr='icontains')
+
+    class Meta:
+        model = models.AnexoAula
+        fields = ('nome', 'tipo', 'extensao', )
+
+
+class AnexoComentarioFilter(filterset.FilterSet):
+
+    nome = filterset.CharFilter(lookup_expr='icontains')
+    tipo = filterset.CharFilter(lookup_expr='icontains')
+    extensao = filterset.CharFilter(lookup_expr='icontains')
+
+    class Meta:
+        model = models.AnexoComentario
+        fields = ('nome', 'tipo', 'extensao', )
 

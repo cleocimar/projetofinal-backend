@@ -24,9 +24,11 @@ class ComentarioViewset(viewsets.ModelViewSet):
 class AnexoAulaViewset(viewsets.ModelViewSet):
     queryset = models.AnexoAula.objects.all()
     serializer_class = serializers.AnexoAulaModelSerializer
+    filterset_class = filters.AnexoAulaFilter
 
 class AnexoComentarioViewset(viewsets.ModelViewSet):
     queryset = models.AnexoComentario.objects.all()
     serializer_class = serializers.AnexoComentarioModelSerializer
+    filterset_class = filters.AnexoComentarioFilter
 
 
