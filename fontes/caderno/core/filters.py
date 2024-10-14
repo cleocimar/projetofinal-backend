@@ -13,17 +13,18 @@ class UsuarioFilter(filterset.FilterSet):
 class AulaFilter(filterset.FilterSet):
     
     instituicao = filterset.CharFilter(lookup_expr='icontains')
-    #data_aula = filterset.CharFilter(lookup_expr='icontains')
+    data_aula = filterset.CharFilter(lookup_expr='icontains')
     disciplina = filterset.CharFilter(lookup_expr='icontains')
     conteudo = filterset.CharFilter(lookup_expr='icontains')
 
     class Meta:
         model = models.Aula
-        fields = ('instituicao', 'disciplina', 'conteudo', )
+        fields = ('instituicao', 'disciplina', 'conteudo', 'data_aula', )
 
 class ComentarioFilter(filterset.FilterSet):
 
     texto = filterset.CharFilter(lookup_expr='icontains')
+    data_comentario = filterset.CharFilter(lookup_expr='icontains')
 
     class Meta:
         model = models.Comentario
