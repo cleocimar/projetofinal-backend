@@ -26,8 +26,8 @@ class UsuarioAula(admin.ModelAdmin):
 
 @admin.register(models.Comentario)
 class Comentario(admin.ModelAdmin):
-    list_display = ['id', 'data_aula', 'texto', 'tipo']
-    list_display_links = ['id', 'data_aula', 'texto', 'tipo']
+    list_display = ['id', 'data_comentario', 'texto', 'tipo']
+    list_display_links = ['id', 'data_comentario', 'texto', 'tipo']
 
 
 @admin.register(models.AnexoComentario)

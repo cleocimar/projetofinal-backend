@@ -21,18 +21,28 @@ class UsuarioAulaModelSerializer(FlexFieldsModelSerializer):
             'aula': ('core.AulaModelSerializer'),
         }
 
-
 class ComentarioModelSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = models.Comentario
         fields = '__all__'
+        expandable_fields = {
+            'aula': ('core.AulaModelSerializer'),
+            'usuario': ('core.UsuarioModelSerializer'),
+        }
 
 class AnexoAulaModelSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = models.AnexoAula
         fields = '__all__'
+        expandable_fields = {
+            'aula': ('core.AulaModelSerializer'),
+        }
 
 class AnexoComentarioModelSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = models.AnexoComentario
         fields = '__all__'
+        expandable_fields = {
+            'comentario': ('core.ComentarioModelSerializer'),
+        }
+

@@ -10,6 +10,7 @@ class UsuarioViewset(viewsets.ModelViewSet):
 class AulaViewset(viewsets.ModelViewSet):
     queryset = models.Aula.objects.all()
     serializer_class = serializers.AulaModelSerializer
+    filterset_class = filters.AulaFilter
 
 class UsuarioAulaViewset(viewsets.ModelViewSet):
     queryset = models.UsuarioAula.objects.all()
@@ -18,6 +19,7 @@ class UsuarioAulaViewset(viewsets.ModelViewSet):
 class ComentarioViewset(viewsets.ModelViewSet):
     queryset = models.Comentario.objects.all()
     serializer_class = serializers.ComentarioModelSerializer
+    filterset_class = filters.ComentarioFilter
 
 class AnexoAulaViewset(viewsets.ModelViewSet):
     queryset = models.AnexoAula.objects.all()

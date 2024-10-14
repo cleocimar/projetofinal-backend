@@ -70,7 +70,7 @@ class Comentario(ModeBase):
         Propria = 'P', 'Propria'
         Opiniao = 'O', 'Opiniao'
 
-    data_aula = models.DateField(null=False)
+    data_comentario = models.DateField(null=False)
     texto = models.TextField(null=False)
     tipo = models.CharField(max_length=1, choices=Tipo, blank=False, null=False)
 
@@ -102,9 +102,9 @@ class AnexoAula(ModeBase):
         Audio = 'S', 'Audio'
 
     class Extensao(models.TextChoices):
-        PDF = 'PDF', 'PDF'
-        JPG = 'JPG', 'JPG'
-        WAV = 'WAV', 'WAVE'
+        PDF = 'P', 'PDF'
+        JPG = 'J', 'JPG'
+        WAV = 'W', 'WAVE'
 
     nome = models.CharField(max_length=40, null=False)
     tipo = models.CharField(max_length=1, choices=Tipo,blank=False, null=False)
@@ -132,28 +132,16 @@ class AnexoComentario(ModeBase):
         Audio = 'S', 'Audio'
 
     class Extensao(models.TextChoices):
-        PDF = 'PDF', 'PDF'
-        JPG = 'JPG', 'JPG'
-        WAV = 'WAV', 'WAVE'
-
-    # TIPO_CHOICES = (
-    #     ("A", "arquivo"),
-    #     ("F", "foto"),
-    #     ("S", "áudio")
-    # )
-
-    # EXTENSAO_CHOICES = (
-    #     ("PDF", "PDF"),
-    #     ("JPG", "JPG"),
-    #     ("WAV", "WAV")
-    # )
+        PDF = 'P', 'PDF'
+        JPG = 'J', 'JPG'
+        WAV = 'W', 'WAVE'
 
     nome = models.CharField(max_length=40, null=False)
     tipo = models.CharField(max_length=1, choices=Tipo,blank=False, null=False)
     extensao = models.CharField(max_length=3, choices=Extensao,blank=False, null=True)
     caminho_anexo = models.CharField(max_length=100, null=False)
 
-    Comentario = models.ForeignKey(
+    comentario = models.ForeignKey(
         to='Comentario',
         on_delete=models.DO_NOTHING,
         db_column='id_comentario',
