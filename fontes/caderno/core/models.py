@@ -108,7 +108,7 @@ class AnexoAula(ModeBase):
 
     nome = models.CharField(max_length=40, null=False)
     tipo = models.CharField(max_length=1, choices=Tipo,blank=False, null=False)
-    extensao = models.CharField(max_length=1, choices=Extensao,blank=False, null=True)
+    extensao = models.CharField(max_length=3, choices=Extensao,blank=False, null=True)
     caminho_anexo = models.CharField(max_length=100, null=False)
 
     aula = models.ForeignKey(
@@ -138,7 +138,7 @@ class AnexoComentario(ModeBase):
 
     nome = models.CharField(max_length=40, null=False)
     tipo = models.CharField(max_length=1, choices=Tipo,blank=False, null=False)
-    extensao = models.CharField(max_length=1, choices=Extensao,blank=False, null=True)
+    extensao = models.CharField(max_length=3, choices=Extensao,blank=False, null=True)
     caminho_anexo = models.CharField(max_length=100, null=False)
 
     comentario = models.ForeignKey(
