@@ -52,20 +52,20 @@ VALUES (4,'Fametro','2024-10-06','I.A.','Tipos de I.A. aplicações e prompts po
  *************************/
  -- Anexos da Sala 1 ( três anexos de cada tipo P-PDF   F-Foto  A-Audio )
 INSERT INTO anexo_aula (id, id_aula, nome, tipo, extensao, caminho_anexo, created_at, modified_at, active)
-VALUES (1,1,'apostila de BD','A','PDF', 'c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
+VALUES (1,1,'apostila de BD','A','P', 'c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
 
 INSERT INTO anexo_aula (id, id_aula, nome, tipo, extensao, caminho_anexo, created_at, modified_at, active)
-VALUES (2,1,'foto da capa do livro','F','JPG', 'c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
+VALUES (2,1,'foto da capa do livro','F','J', 'c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
 
 INSERT INTO anexo_aula (id, id_aula, nome, tipo, extensao, caminho_anexo, created_at, modified_at, active)
-VALUES (3,1,'audio da master class','S','WAV', 'c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
+VALUES (3,1,'audio da master class','S','W', 'c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
 
 -- Anexos da Sala 2 ( dois anexos de cada tipo P-PDF   F-Foto )
 INSERT INTO anexo_aula (id, id_aula, nome, tipo, extensao, caminho_anexo, created_at, modified_at, active)
-VALUES (4,2,'Livro gang Of Four','A','PDF', 'c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
+VALUES (4,2,'Livro gang Of Four','A','P', 'c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
 
 INSERT INTO anexo_aula (id, id_aula, nome, tipo, extensao, caminho_anexo, created_at, modified_at, active)
-VALUES (5,2,'Pesquisa sobre Graphos','F', 'JPG', 'c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
+VALUES (5,2,'Pesquisa sobre Graphos','F', 'J', 'c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
 
 -- Anexos da Sala 3: ( *** não possui anexos *** )
 
@@ -149,15 +149,15 @@ VALUES (6, now(), 'Anexei duas apostilas de exercício de UML blá...', 'P', 1, 
  ANEXO X COMENTARIO
  *********************************************/
 INSERT INTO anexo_comentario (id, id_comentario, nome, tipo, extensao, caminho_anexo, created_at, modified_at, active)
-VALUES (6, 5, 'capa-de-livro-top','F','JPG','c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
+VALUES (6, 5, 'capa-de-livro-top','F','J','c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
 
 INSERT INTO anexo_comentario (id, id_comentario, nome, tipo, extensao, caminho_anexo, created_at, modified_at, active)
-VALUES (7, 5, 'depoimento','S','WAV','c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
+VALUES (7, 5, 'depoimento','S','W','c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
 
 INSERT INTO anexo_comentario (id, id_comentario,  nome, tipo, extensao, caminho_anexo, created_at, modified_at, active)
-VALUES (8, 6, 'exercicio uml avançado','A','PDF','c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
+VALUES (8, 6, 'exercicio uml avançado','A','P','c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
 
 INSERT INTO anexo_comentario (id,id_comentario,  nome, tipo, extensao, caminho_anexo, created_at, modified_at, active)
-VALUES (9, 6, 'padrões de projetos em uml','A','PDF','c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
+VALUES (9, 6, 'padrões de projetos em uml','A','P','c:\anexos','2024-10-07 01:55:02','2024-10-07 01:55:02',TRUE);
 
 
