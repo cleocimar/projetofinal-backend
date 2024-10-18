@@ -30,7 +30,8 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
+# Este módulo que o Django reclama <rest_frameworkcorsheaders> me parece que não existe
+# O o módulo <corsheaders> foi sugerido pelo Gemini assim que funcionou
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
     'django_filters',
-    'rest_framework'
-    'corsheaders.middleware.CorsMiddleware',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'caderno.urls'
