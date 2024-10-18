@@ -7,11 +7,16 @@ select coalesce( c.id, 0 ) as id_comentario,
        coalesce( u.nome   , '') as nome,
        coalesce( c.texto, '' ) as texto,
        coalesce( ac.id, 0  ) as anexo_id,
-       case when coalesce( ac.tipo,'')='P' then 'PDF'
+       coalesce( ac.tipo    , '' ) as codigo_tipo,
+       coalesce( ac.extensao, '' ) as codigo_extensao,
+       case when coalesce( ac.tipo,'')='A' then 'Arquivo'
             when coalesce( ac.tipo,'')='F' then 'Foto'
-            when coalesce( ac.tipo,'')='A' then 'Audio' else 'não identificado'
+            when coalesce( ac.tipo,'')='S' then 'Audio' else 'não identificado'
            end as anexo_descricao,
-       coalesce( ac.extensao, '' ) as extensao,
+       case when coalesce( ac.extensao,'')='J' then 'JPG'
+            when coalesce( ac.extensao,'')='W' then 'WAVE'
+            when coalesce( ac.extensao,'')='P' then 'PDF' else 'não identificado'
+           end as extensao,
        coalesce( ac.nome         , '' ) as nome_anexo,
        coalesce( ac.caminho_anexo, '' ) as caminho_anexo
 from comentario c
@@ -71,12 +76,16 @@ select /* Salas de Aula */
        /* Anexos */
        coalesce( aa.id           , 0  ) as id_anexo,
        coalesce( aa.nome         , '' ) as nome_anexo,
-       coalesce( aa.tipo         , '' ) as anexo_sigla,
-       case when coalesce(aa.tipo,'')='P' then 'PDF'
-            when coalesce(aa.tipo,'')='F' then 'Foto'
-            when coalesce(aa.tipo,'')='A' then 'Audio' else 'não identificado'
-           end as anexo_descricao,
-       coalesce( aa.extensao     , '' ) as extensao,
+       coalesce( aa.tipo         , '' ) as codigo_tipo,
+       coalesce( aa.extensao     , '' ) as codigo_extensao,
+       case when coalesce( aa.tipo,'')='A' then 'Arquivo'
+            when coalesce( aa.tipo,'')='F' then 'Foto'
+            when coalesce( aa.tipo,'')='S' then 'Audio' else 'não identificado'
+           end as anexo_tipo,
+       case when coalesce( aa.extensao,'')='P' then 'PDF'
+            when coalesce( aa.extensao,'')='J' then 'JPG'
+            when coalesce( aa.extensao,'')='W' then 'WAVE' else 'não identificado'
+       end as anexo_descricao,
        coalesce( aa.caminho_anexo, '' ) as caminho_anexo
 from aula a
 left join anexo_aula aa on aa.id_aula=a.id
